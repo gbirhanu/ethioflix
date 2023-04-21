@@ -60,7 +60,7 @@ const MovieInformation = () => {
   const dispatch = useDispatch();
   const [isMovieFavorited, setisMovieFavorited] = useState(false);
   const [isMovieWatchlisted, setisMovieWatchlisted] = useState(false);
-
+  console.log(user);
   useEffect(() => {
     if (favoriteMovies && data) {
       setisMovieFavorited(
@@ -408,8 +408,14 @@ const MovieInformation = () => {
                 },
               }}
             >
-              <ButtonGroup variant="outlined" size="small">
+              <ButtonGroup
+                variant="outlined"
+                size="small"
+                title={Object.keys(user).length === 0 && "Login to add"}
+              >
                 <Button
+                  title={Object.keys(user).length === 0 && "Login to add"}
+                  disabled={Object.keys(user).length === 0}
                   onClick={addToFavorites}
                   endIcon={
                     isMovieFavorited ? <FavoriteBorderOutlined /> : <Favorite />
@@ -421,11 +427,13 @@ const MovieInformation = () => {
                   {isMovieFavorited ? "Unfavorite" : "Favorite"}
                 </Button>
                 <Button
+                  disabled={Object.keys(user).length === 0}
                   onClick={addToWatchlist}
                   endIcon={isMovieWatchlisted ? <Remove /> : <PlusOne />}
                   style={{
                     color: theme.palette.secondary[100],
                   }}
+                  title={Object.keys(user).length === 0 && "Login to add"}
                 >
                   WatchList
                 </Button>
