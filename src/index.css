@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #7a7f9d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #191f45;
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-track:hover {
+  background: #191f45;
+}
