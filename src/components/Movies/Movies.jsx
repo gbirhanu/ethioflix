@@ -5,6 +5,7 @@ import {
   CircularProgress,
   useMediaQuery,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useGetMoviesQuery } from "../../services/TMDB";
@@ -15,6 +16,7 @@ const Movies = () => {
   const { genreIdOrCategoryName, searchQuery } = useSelector(
     (state) => state.currentGenreOrCategory
   );
+  const theme = useTheme();
   const lg = useMediaQuery((theme) => theme.breakpoints.only("lg"));
   const numberOfMovies = lg ? 17 : 19;
   const { data, error, isFetching } = useGetMoviesQuery({
@@ -25,7 +27,12 @@ const Movies = () => {
   if (isFetching) {
     return (
       <Box display="flex" justifyContent="center">
-        <CircularProgress size="4rem" />
+        <CircularProgress
+          size="4rem"
+          sx={{
+            color: theme.palette.secondary[100],
+          }}
+        />
       </Box>
     );
   }

@@ -30,7 +30,7 @@ import { setMode } from "../../features/mode";
 const NavBar = () => {
   const { isAuthenticated, user } = useSelector(userSelector);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isMobile = useMediaQuery("(max-width: 960px)");
   const isTooSmall = useMediaQuery("(max-width: 287px)");
 
   const theme = useTheme();

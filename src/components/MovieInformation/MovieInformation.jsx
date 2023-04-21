@@ -10,7 +10,7 @@ import {
   ButtonGroup,
   Box,
   CircularProgress,
-  useMediaQuery,
+  useTheme,
   Rating,
 } from "@mui/material";
 import {
@@ -35,7 +35,6 @@ import genreIcon from "../../assets/genres";
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 import { MovieList } from "..";
 import { userSelector } from "../../features/auth";
-import { useTheme } from "@mui/material/styles";
 
 const MovieInformation = () => {
   const { user } = useSelector(userSelector);
@@ -109,7 +108,12 @@ const MovieInformation = () => {
     return (
       <Box display="flex" justifyContent="center" alignItems="center">
         {" "}
-        <CircularProgress size="8rem" />
+        <CircularProgress
+          size="8rem"
+          sx={{
+            color: theme.palette.secondary[100],
+          }}
+        />
       </Box>
     );
   }

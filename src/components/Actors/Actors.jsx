@@ -27,7 +27,12 @@ const Actors = () => {
     return (
       <Box display="flex" justifyContent="center" alignItems="center">
         {" "}
-        <CircularProgress size="8rem" />
+        <CircularProgress
+          size="8rem"
+          sx={{
+            color: theme.palette.secondary[100],
+          }}
+        />
       </Box>
     );
   }

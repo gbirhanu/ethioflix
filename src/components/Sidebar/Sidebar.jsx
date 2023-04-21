@@ -112,7 +112,12 @@ const Sidebar = ({ setMobileOpen }) => {
         </ListSubheader>
         {isFetching ? (
           <Box display="flex" justifyContent="center">
-            <CircularProgress size="4rem" />
+            <CircularProgress
+              size="4rem"
+              sx={{
+                color: theme.palette.secondary[100],
+              }}
+            />
           </Box>
         ) : (
           data.genres.map(({ name, id }) => (
